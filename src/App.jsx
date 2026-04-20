@@ -1,7 +1,12 @@
-import { useState } from "react"
+import {  useRef, useState } from "react"
+import Hook from "./Hook";
 
 export default function App(){
   const [value, setValue]=useState(10);
+  const qimat = useRef(90);
+  function increase(){
+    qimat.current++;
+  }
   function hadleClick(){
     setValue(value+1);
   }
@@ -10,10 +15,11 @@ export default function App(){
     <div style={
       {
         width: "100%",
-        height: "100vh",
+        height: "70vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        flexDirection: "column"
       }
     }>
       <div style={
@@ -30,7 +36,16 @@ export default function App(){
         }
       }>Add</button>
       </div>
+      <div>
+        <h1>{qimat.current}</h1>
+        <button onClick={increase}>Add</button>
+      </div>
+
+
+
     </div>
+
+   <Hook/>
     </>
   )
 }
