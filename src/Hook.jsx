@@ -1,7 +1,7 @@
-import { useReducer } from "react"
+import { useReducer, useRef } from "react"
 
 export default function Hook(){
-    const h1=useReducer(null);
+    const h1=useRef(null);
     function change(){
         h1.current.style.cssText="background-color:red; color:white; font-size:32px";
     }

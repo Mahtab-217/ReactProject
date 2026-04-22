@@ -1,51 +1,23 @@
-import {  useRef, useState } from "react"
-import Hook from "./Hook";
+import { useRef, useState } from "react"
 
-export default function App(){
-  const [value, setValue]=useState(10);
-  const qimat = useRef(90);
-  function increase(){
-    qimat.current++;
-  }
-  function hadleClick(){
+export default function (){
+  const [value,setValue]=useState(10);
+  const qimat=useRef(12);
+  function handleClick(){
     setValue(value+1);
+  }
+  function handleClick2(){
+    qimat.current + 2;
   }
   return(
     <>
-    <div style={
-      {
-        width: "100%",
-        height: "70vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column"
-      }
-    }>
-      <div style={
-        {
-            display: "flex",
-            gap:"10px",
+    <h1>{value}</h1>
+    <button onClick={handleClick}>+2</button>
 
-        }
-      }>
-      <h1>{value}</h1>
-      <button onClick={hadleClick} style={
-        {
-          
-        }
-      }>Add</button>
-      </div>
-      <div>
-        <h1>{qimat.current}</h1>
-        <button onClick={increase}>Add</button>
-      </div>
-
-
-
+    <div>
+      <h1>{qimat.current}</h1>
+      <button onClick={handleClick2}> Add 2</button>
     </div>
-
-   <Hook/>
     </>
   )
 }
