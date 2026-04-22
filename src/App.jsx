@@ -4,9 +4,11 @@ import { useContext } from "react"
 import Home from "./Home"
 import { studentList } from "../db/Student";
 
+
+ export const StudentContext= useContext();
 export default function (){
   const list = studentList;
- export const StudentContext= useContext();
+
   // const [value,setValue]=useState(10);
   // const qimat=useRef(12);
   // function handleClick(){
@@ -18,7 +20,11 @@ export default function (){
   return(
     <div>
       <h1>Home Page</h1>
+      <StudentContext.Provider>
+        
       <Home/>
+      </StudentContext.Provider>
+
 
     </div>
     // <>
